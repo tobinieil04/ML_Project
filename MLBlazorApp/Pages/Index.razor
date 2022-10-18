@@ -1,0 +1,65 @@
+﻿@page "/"
+@inject HttpClient client
+@using Microsoft.Extensions.Logging
+@inject ILogger Logger;
+
+<p>
+    <label>Max allowed images: @maxAllowedFiles</label>
+    <label>Upload an image: </label>
+    <InputFile accept="image/*" OnChange="@LoadFiles" multiple/>
+</p>
+
+
+@if (isLoading)
+{
+    <p>Uploading...</p>
+}
+else
+{
+   <ul>
+       @foreach (var file in loadedFiles)
+        {
+            <li>
+                <ul>
+                    <li></li> @*TODO: Finnish this...*@
+                </ul>
+            </li>
+        }
+   </ul>
+}
+
+
+
+
+
+@code {
+    private List<IBrowserFile> loadedFiles = new();
+    private int maxAllowedFiles = 3;
+    private bool isLoading;
+    private List<string> result;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+         result = await client.GetFromJsonAsync("/predict"); //TODO: Make this work
+    }
+
+    private async void LoadFiles(InputFileChangeEventArgs e) {
+        isLoading = true;
+        loadedFiles.Clear();
+
+        foreach (var file in e.GetMultipleFiles(maxAllowedFiles))
+        {
+            try
+            {
+                var response = await client.PostAsJsonAsync("/predict", loadedFiles);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError($"File: {file.Name} Error: {ex.Message}" );
+            }
+        }
+
+        isLoading = false;
+    }
+}
