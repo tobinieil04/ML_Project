@@ -7,7 +7,7 @@ using System.IO;
 namespace TumorImageClassificationModel.ConsoleApp
 {
     class Program
-    {½
+    {
         static void Main(string[] args)
         {
             // Create single instance of sample data from first line of dataset for model input
