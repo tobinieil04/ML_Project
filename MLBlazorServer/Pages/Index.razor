@@ -1,0 +1,88 @@
+﻿@page "/"
+@using TumorClassificationModel_Console
+@using static Tensorflow.Summary.Types
+@inject HttpClient client
+
+<div>
+    <label>Max allowed images: @maxAllowedFiles</label>
+    <label>Upload an image: </label>
+    <br />
+    <InputFile accept="image/*" OnChange="@OnInputChange" multiple />
+    <button class="btn btn-success" @onclick="@Load">Upload</button>
+</div>
+
+
+<div>
+    @if (!isLoading)
+    {
+        if (PredictedLabel != null)
+        {
+            <div class="card mb-2">
+                <div class="card-header">
+                    <img src="@ImagePath" height="300" width="300">
+                </div>
+                <div class="card-body">
+                    <p>@PredictedLabel</p>
+                    <p>@Math.Round(Score[0] * 100, 2) %</p>
+                </div>
+            </div>
+        }
+        else
+        {
+            <p>Nothing to see.</p>
+        }
+    }
+    else
+    {
+        <p>Loading...</p>
+    }
+</div>
+
+
+@code {
+
+    private List<IBrowserFile> ImageUrls = new();
+    private int maxAllowedFiles = 3;
+    private bool isLoading;
+
+    public string? ImagePath { get; set; }
+
+    public string? PredictedLabel { get; set; }
+
+    public float[]? Score { get; set; }
+
+    private byte[]? imageBytes;
+
+
+    private async void OnInputChange(InputFileChangeEventArgs e)
+    {
+        var format = "image/*";
+        ImageUrls.Clear();
+
+        foreach (var imageFile in e.GetMultipleFiles(maxAllowedFiles))
+        {
+
+            var resizedImageFile = await imageFile.RequestImageFileAsync(format, 100, 100);
+            var buffer = new byte[resizedImageFile.Size];
+            await resizedImageFile.OpenReadStream().ReadAsync(buffer);
+            ImagePath = $"data:{format};base64,{Convert.ToBase64String(buffer)}";
+            ImageUrls.Add(imageFile);
+            MemoryStream stream = new MemoryStream();
+            await imageFile.OpenReadStream().CopyToAsync(stream);
+            imageBytes = stream.ToArray();
+        }
+    }
+
+    private void Load()
+    {
+        isLoading = true;
+        TumorClassificationModel.ModelInput sampleData = new TumorClassificationModel.ModelInput()
+            {
+                ImageSource = imageBytes,
+            };
+        var predictionResult = TumorClassificationModel.Predict(sampleData);
+        PredictedLabel = predictionResult.PredictedLabel;
+        Score = predictionResult.Score;
+        isLoading = false;
+    }
+}

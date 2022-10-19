@@ -1,7 +1,6 @@
 ﻿@page "/"
 @inject HttpClient client
 @using Microsoft.Extensions.Logging
-@inject ILogger Logger;
 
 <p>
     <label>Max allowed images: @maxAllowedFiles</label>
@@ -16,12 +15,22 @@
 }
 else
 {
+    @if (response != null)
+    {
+        <p>I Got Something!!!</p>
+    }
+    else
+    {
+        <p>Meh Does not work...</p>
+    }
+
    <ul>
        @foreach (var file in loadedFiles)
         {
             <li>
                 <ul>
-                    <li></li> @*TODO: Finnish this...*@
+              
+                   <li>@response.</li>
                 </ul>
             </li>
         }
@@ -33,16 +42,17 @@ else
 
 
 @code {
+
     private List<IBrowserFile> loadedFiles = new();
     private int maxAllowedFiles = 3;
     private bool isLoading;
-    private List<string> result;
+    private HttpResponseMessage response;
 
 
-    protected override async Task OnInitializedAsync()
-    {
-         result = await client.GetFromJsonAsync("/predict"); //TODO: Make this work
-    }
+    public string PredictedLabel { get; set; }
+
+    public string Score { get; set; }
+
 
     private async void LoadFiles(InputFileChangeEventArgs e) {
         isLoading = true;
@@ -52,11 +62,12 @@ else
         {
             try
             {
-                var response = await client.PostAsJsonAsync("/predict", loadedFiles);
+                loadedFiles.Add(file);
+                response = await client.PostAsJsonAsync("/predict", loadedFiles);
             }
             catch (Exception ex)
             {
-                Logger.LogError($"File: {file.Name} Error: {ex.Message}" );
+                //Logger.LogError($"File: {file.Name} Error: {ex.Message}" );
             }
         }
 

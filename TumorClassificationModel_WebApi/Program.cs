@@ -11,6 +11,7 @@ using TumorClassificationModel_WebApi;
 // Configure app
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
 builder.Services.AddPredictionEnginePool<TumorClassificationModel.ModelInput, TumorClassificationModel.ModelOutput>()
     .FromFile("TumorClassificationModel.zip");
 builder.Services.AddEndpointsApiExplorer();
@@ -21,6 +22,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 var app = builder.Build();
 
+
 app.UseSwagger();
 
 app.UseSwaggerUI(c =>
@@ -28,7 +30,15 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Brain Tumor API V1");
 });
 
-// Define prediction route & handler
+app.UseCors(o =>
+{
+    o.AllowAnyHeader();
+    o.AllowAnyMethod();
+    o.AllowAnyOrigin();
+});
+app.MapControllers();
+
+//Define prediction route & handler
 app.MapPost("/predict",
     async (PredictionEnginePool<TumorClassificationModel.ModelInput, TumorClassificationModel.ModelOutput> predictionEnginePool, string imagePath) =>
     {
