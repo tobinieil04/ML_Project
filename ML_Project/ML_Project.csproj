@@ -11,15 +11,15 @@
     <PackageReference Include="Microsoft.ML.Vision" Version="1.7.1" />
     <PackageReference Include="SciSharp.TensorFlow.Redist" Version="2.3.1" />
   </ItemGroup>
-  <ItemGroup Label="TumorClassificationModel">
-    <None Include="TumorClassificationModel.consumption.cs">
-      <DependentUpon>TumorClassificationModel.mbconfig</DependentUpon>
+  <ItemGroup Label="TumorClassificationModel_v1">
+    <None Include="TumorClassificationModel_v1.consumption.cs">
+      <DependentUpon>TumorClassificationModel_v1.mbconfig</DependentUpon>
     </None>
-    <None Include="TumorClassificationModel.training.cs">
-      <DependentUpon>TumorClassificationModel.mbconfig</DependentUpon>
+    <None Include="TumorClassificationModel_v1.training.cs">
+      <DependentUpon>TumorClassificationModel_v1.mbconfig</DependentUpon>
     </None>
-    <None Include="TumorClassificationModel.zip">
-      <DependentUpon>TumorClassificationModel.mbconfig</DependentUpon>
+    <None Include="TumorClassificationModel_v1.zip">
+      <DependentUpon>TumorClassificationModel_v1.mbconfig</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
