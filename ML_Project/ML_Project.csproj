@@ -23,4 +23,16 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup Label="BrainClassificationModel_v1">
+    <None Include="BrainClassificationModel_v1.consumption.cs">
+      <DependentUpon>BrainClassificationModel_v1.mbconfig</DependentUpon>
+    </None>
+    <None Include="BrainClassificationModel_v1.training.cs">
+      <DependentUpon>BrainClassificationModel_v1.mbconfig</DependentUpon>
+    </None>
+    <None Include="BrainClassificationModel_v1.zip">
+      <DependentUpon>BrainClassificationModel_v1.mbconfig</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

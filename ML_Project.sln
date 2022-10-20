@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MLBlazorServer", "MLBlazorS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TumorClassificationModel_Console", "TumorClassificationModel_Console\TumorClassificationModel_Console.csproj", "{0235508D-72CC-4DD3-B862-ADAB0BB1DFB3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrainClassificationModel_v1_ConsoleApp", "BrainClassificationModel_v1_ConsoleApp\BrainClassificationModel_v1_ConsoleApp.csproj", "{BAE10B03-1ED6-41E4-81E7-F4719295047B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0235508D-72CC-4DD3-B862-ADAB0BB1DFB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0235508D-72CC-4DD3-B862-ADAB0BB1DFB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0235508D-72CC-4DD3-B862-ADAB0BB1DFB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAE10B03-1ED6-41E4-81E7-F4719295047B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAE10B03-1ED6-41E4-81E7-F4719295047B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAE10B03-1ED6-41E4-81E7-F4719295047B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAE10B03-1ED6-41E4-81E7-F4719295047B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
