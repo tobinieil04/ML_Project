@@ -4,7 +4,7 @@
   "DataSource": {
     "Type": "Folder",
     "Version": 1,
-    "FolderPath": "C:\\Users\\tobin\\OneDrive\\Skrivebord\\MLProjectData\\Brain Tumor Data Set\\Brain Tumor Data Set"
+    "FolderPath": "C:\\MLProjectData\\Brain Tumor Data Set\\Brain Tumor Data Set"
   },
   "Environment": {
     "Type": "LocalCPU",
