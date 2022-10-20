@@ -1,4 +1,4 @@
-# Brain Tumor Machine Learning.
+# Brain Scan Machine Learning.
 
 
 ## Discription:
@@ -8,13 +8,13 @@ Image classification in ML.NET
 
 <br>
 
-## Task
+## Task:
 
 Modellen skal ud fra et billede kunne opfange om en hjerne har en svulst eller ej.
 
 <br>
 
-## Data
+## Data:
 
 Datasættet Kommer fra Kaggle.com og indeholder scanningsbilleder af raske hjerner og hjerner der har en form for svulst.
 
@@ -31,22 +31,31 @@ Datasættet Kommer fra Kaggle.com og indeholder scanningsbilleder af raske hjern
 
 <br>
 
-## Roadmap
+## Roadmap:
 
 - [x] Collect Data(check for noise) 
 - [ ] ~~~~Make Object Detection model. 
 - [x] Make a useable model with high enough accuracy.
 - [x] Create a simple ConsoleApp to make a demo on.
-- [ ] Create a web application with frontend.
+- [x] Create a web application with frontend.
   - [ ] ~~Blazor Webassembly and API with JSON 
   - [ ] ~~Blazor Server and API with JSON.
   - [x] Blazor Server with ML Model in razor component.
-- [ ] Make 2-3 Iterrations to see an improvement in model accuracy.
+- [x] Make 2-3 Iterrations to see an improvement in model accuracy.
 
 <br>
 
-## Folder Structure
+## Folder Structure:
 
+```
+ML_Project
+| README.md
+├── ML_Project
+├── MLBlazorServer
+└── TumorClassificationModel_Console
+    └── TumorClassificationModel.mbconfig
+
+```
 <br>
 
 ## Tools:
