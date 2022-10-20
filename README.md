@@ -26,12 +26,26 @@ Datasættet Kommer fra Kaggle.com og indeholder scanningsbilleder af raske hjern
 - [x] Make Blazor.
 - [x] Make Frontend.
 - [x] Make Backend.
-- [x] Improve iteration #1 95% Accuracy
+- [x] Improve iteration #1 95% - 96% Accuracy
 - [ ] Improve iteration #2
 
 <br>
 
+## Roadmap
 
+- [x] Collect Data(check for noise) 
+- [ ] ~~~~Make Object Detection model. 
+- [x] Make a useable model with high enough accuracy.
+- [x] Create a simple ConsoleApp to make a demo on.
+- [ ] Create a web application with frontend.
+  - [ ] ~~Blazor Webassembly and API with JSON 
+  - [ ] ~~Blazor Server and API with JSON.
+  - [x] Blazor Server with ML Model in razor component.
+- [ ] Make 2-3 Iterrations to see an improvement in model accuracy.
+
+<br>
+
+## Folder Structure
 
 <br>
 
