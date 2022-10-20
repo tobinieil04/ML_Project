@@ -9,12 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TumorImageClassificationMod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TumorClassificationModel_WebApi", "TumorClassificationModel_WebApi\TumorClassificationModel_WebApi.csproj", "{D4C90CB2-E108-4496-A7B4-7063E782BB24}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MLBlazorApp", "MLBlazorApp\MLBlazorApp.csproj", "{A14CB404-71F6-4B0F-8FDD-E1F3FE0C0FA8}"
-	ProjectSection(ProjectDependencies) = postProject
-		{D4C90CB2-E108-4496-A7B4-7063E782BB24} = {D4C90CB2-E108-4496-A7B4-7063E782BB24}
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLBlazorServer", "MLBlazorServer\MLBlazorServer.csproj", "{123D7663-FE97-4850-B26B-9CFA707E1822}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MLBlazorServer", "MLBlazorServer\MLBlazorServer.csproj", "{123D7663-FE97-4850-B26B-9CFA707E1822}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TumorClassificationModel_Console", "TumorClassificationModel_Console\TumorClassificationModel_Console.csproj", "{0235508D-72CC-4DD3-B862-ADAB0BB1DFB3}"
 EndProject
@@ -36,10 +31,6 @@ Global
 		{D4C90CB2-E108-4496-A7B4-7063E782BB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4C90CB2-E108-4496-A7B4-7063E782BB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4C90CB2-E108-4496-A7B4-7063E782BB24}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A14CB404-71F6-4B0F-8FDD-E1F3FE0C0FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A14CB404-71F6-4B0F-8FDD-E1F3FE0C0FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A14CB404-71F6-4B0F-8FDD-E1F3FE0C0FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A14CB404-71F6-4B0F-8FDD-E1F3FE0C0FA8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{123D7663-FE97-4850-B26B-9CFA707E1822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{123D7663-FE97-4850-B26B-9CFA707E1822}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{123D7663-FE97-4850-B26B-9CFA707E1822}.Release|Any CPU.ActiveCfg = Release|Any CPU
