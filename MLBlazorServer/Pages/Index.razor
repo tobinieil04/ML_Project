@@ -8,33 +8,27 @@
     <label>Upload an image: </label>
     <br />
     <InputFile accept="image/*" OnChange="@OnInputChange" multiple />
-    <button class="btn btn-success" @onclick="@Load">Upload</button>
+    <button id="loadButton" class="btn btn-success" eve @onclick="@Load">Upload</button>
 </div>
 
 
 <div>
-    @if (!isLoading)
+    @if (PredictedLabel != null)
     {
-        if (PredictedLabel != null)
-        {
-            <div class="card mb-2">
-                <div class="card-header">
-                    <img src="@ImagePath" height="300" width="300">
-                </div>
-                <div class="card-body">
-                    <p>@PredictedLabel</p>
-                    <p>@Math.Round(Score[0] * 100, 2) %</p>
-                </div>
+        <div class="card mb-2" style="width:20rem;">
+            <div class="card-header">
+                <img src="@ImagePath" class="card-img-top" height="250" width="250">
             </div>
-        }
-        else
-        {
-            <p>Nothing to see.</p>
-        }
+            <div class="card-body">
+                <h4>Predicted: <strong>@PredictedLabel</strong></h4>
+                <p>Brain Tumor: @Math.Round(Score[0] * 100, 2) %</p>
+                <p>Healthy Brain: @Math.Round(Score[1] * 100, 2) %</p>
+            </div>
+        </div>
     }
     else
     {
-        <p>Loading...</p>
+        <p>Waiting for input.</p>
     }
 </div>
 
@@ -43,7 +37,7 @@
 
     private List<IBrowserFile> ImageUrls = new();
     private int maxAllowedFiles = 3;
-    private bool isLoading;
+    //private bool contentLoaded = false;
 
     public string? ImagePath { get; set; }
 
@@ -51,7 +45,7 @@
 
     public float[]? Score { get; set; }
 
-    private byte[]? imageBytes;
+    private byte[]? imageBytes { get; set; }
 
 
     private async void OnInputChange(InputFileChangeEventArgs e)
@@ -73,16 +67,20 @@
         }
     }
 
-    private void Load()
+    private async void Load()
     {
-        isLoading = true;
+        var prediction = await Predict();
+        PredictedLabel = prediction.PredictedLabel;
+        Score = prediction.Score;
+    }
+
+    private async Task<TumorClassificationModel.ModelOutput> Predict()
+    {
         TumorClassificationModel.ModelInput sampleData = new TumorClassificationModel.ModelInput()
             {
                 ImageSource = imageBytes,
             };
         var predictionResult = TumorClassificationModel.Predict(sampleData);
-        PredictedLabel = predictionResult.PredictedLabel;
-        Score = predictionResult.Score;
-        isLoading = false;
+        return predictionResult;
     }
 }
