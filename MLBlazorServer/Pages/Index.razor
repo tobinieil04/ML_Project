@@ -22,8 +22,8 @@
             </div>
             <div class="card-body">
                 <h4>Predicted: <strong>@PredictedLabel</strong></h4>
-                <p>Brain Tumor: @Math.Round(Score[0] * 100, 2) %</p>
-                <p>Healthy Brain: @Math.Round(Score[1] * 100, 2) %</p>
+                <p>Brain Tumor: @Math.Round(Score[1] * 100, 2) %</p>
+                <p>Healthy Brain: @Math.Round(Score[0] * 100, 2) %</p>
             </div>
         </div>
     }
@@ -75,13 +75,13 @@
         Score = prediction.Score;
     }
 
-    private async Task<TumorClassificationModel.ModelOutput> Predict()
+    private async Task<BrainClassificationModel_v1.ModelOutput> Predict()
     {
-        TumorClassificationModel.ModelInput sampleData = new TumorClassificationModel.ModelInput()
+        BrainClassificationModel_v1.ModelInput sampleData = new BrainClassificationModel_v1.ModelInput()
             {
                 ImageSource = imageBytes,
             };
-        var predictionResult = TumorClassificationModel.Predict(sampleData);
+        var predictionResult = BrainClassificationModel_v1.Predict(sampleData);
         return predictionResult;
     }
 }

@@ -47,7 +47,8 @@ namespace BrainClassificationModel_v1_ConsoleApp
 
         #endregion
 
-        private static string MLNetModelPath = Path.GetFullPath("BrainClassificationModel_v1.zip");
+        //private static string MLNetModelPath = Path.GetFullPath("BrainClassificationModel_v1.zip");
+        private static string MLNetModelPath = Path.GetFullPath("C:\\Users\\tobin\\source\\repos\\ML_Project\\BrainClassificationModel_v1_ConsoleApp\\BrainClassificationModel_v1.zip");
 
         public static readonly Lazy<PredictionEngine<ModelInput, ModelOutput>> PredictEngine = new Lazy<PredictionEngine<ModelInput, ModelOutput>>(() => CreatePredictEngine(), true);
 
