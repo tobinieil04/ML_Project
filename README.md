@@ -18,6 +18,16 @@ Modellen skal ud fra et billede kunne opfange om en hjerne har en svulst eller e
 
 Datasættet Kommer fra Kaggle.com og indeholder scanningsbilleder af raske hjerner og hjerner der har en form for svulst.
 
+## Instructions:
+
+To make a prediction, you must follow these instructions for the program to work properly.
+- Click the "Vælg fil"
+- Choose an image you want to make a prediction on.  
+- **NOTE** The chosen image has to be a scanning in black and white, any other image confuse the model.
+- When ready click the upload button and wait a few seconds.
+- If all above steps were done correctly, you should now see the image you chose and percentage of how sure the program is.
+
+
 <br>
 
 ## Checklist:
@@ -27,19 +37,19 @@ Datasættet Kommer fra Kaggle.com og indeholder scanningsbilleder af raske hjern
 - [x] Make Frontend.
 - [x] Make Backend.
 - [x] Improve iteration #1 95% - 96% Accuracy
-- [ ] Improve iteration #2
+- [x] Improve iteration #2 
 
 <br>
 
 ## Roadmap:
 
 - [x] Collect Data(check for noise) 
-- [ ] ~~~~Make Object Detection model. 
+- [ ] ~~~Make Object Detection model. 
 - [x] Make a useable model with high enough accuracy.
 - [x] Create a simple ConsoleApp to make a demo on.
 - [x] Create a web application with frontend.
-  - [ ] ~~Blazor Webassembly and API with JSON 
-  - [ ] ~~Blazor Server and API with JSON.
+  - [ ] ~~~Blazor Webassembly and API with JSON 
+  - [ ] ~~~Blazor Server and API with JSON.
   - [x] Blazor Server with ML Model in razor component.
 - [x] Make 2-3 Iterrations to see an improvement in model accuracy.
 
