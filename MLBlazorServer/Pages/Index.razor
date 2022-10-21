@@ -5,7 +5,6 @@
 @inject HttpClient client
 
 <div>
-    <label>Max allowed images: @maxAllowedFiles</label>
     <label>Upload an image: </label>
     <br />
     <InputFile accept="image/*" OnChange="@OnInputChange" multiple />
@@ -68,14 +67,14 @@
         }
     }
 
-    private async void Load()
+    private void Load()
     {
-        var prediction = await Predict();
+        var prediction = Predict();
         PredictedLabel = prediction.PredictedLabel;
         Score = prediction.Score;
     }
 
-    private async Task<BrainClassificationModel_v1.ModelOutput> Predict()
+    private BrainClassificationModel_v1.ModelOutput Predict()
     {
         BrainClassificationModel_v1.ModelInput sampleData = new BrainClassificationModel_v1.ModelInput()
             {
