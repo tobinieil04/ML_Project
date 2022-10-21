@@ -4,10 +4,9 @@
 @inject HttpClient client
 
 <div>
-    <label>Max allowed images: @maxAllowedFiles</label>
     <label>Upload an image: </label>
     <br />
-    <InputFile accept="image/*" OnChange="@OnInputChange" multiple />
+    <InputFile accept="image/*" OnChange="@OnInputChange"/>
     <button id="loadButton" class="btn btn-success" eve @onclick="@Load">Upload</button>
 </div>
 
@@ -34,10 +33,8 @@
 
 
 @code {
-
     private List<IBrowserFile> ImageUrls = new();
     private int maxAllowedFiles = 3;
-    //private bool contentLoaded = false;
 
     public string? ImagePath { get; set; }
 
@@ -52,7 +49,7 @@
     {
         var format = "image/*";
         ImageUrls.Clear();
-
+        
         foreach (var imageFile in e.GetMultipleFiles(maxAllowedFiles))
         {
 
@@ -67,14 +64,14 @@
         }
     }
 
-    private async void Load()
+    private void Load()
     {
-        var prediction = await Predict();
+        var prediction = Predict();
         PredictedLabel = prediction.PredictedLabel;
         Score = prediction.Score;
     }
 
-    private async Task<TumorClassificationModel.ModelOutput> Predict()
+    private TumorClassificationModel.ModelOutput Predict()
     {
         TumorClassificationModel.ModelInput sampleData = new TumorClassificationModel.ModelInput()
             {
