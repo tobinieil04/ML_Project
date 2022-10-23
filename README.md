@@ -10,20 +10,20 @@ Image classification in ML.NET
 
 ## Task:
 
-Modellen skal ud fra et billede kunne opfange om en hjerne har en svulst eller ej.
+This ML Model should predict if a brain is healthy or has a tumor.
 
 <br>
 
 ## Data:
 
-Datasættet Kommer fra Kaggle.com og indeholder scanningsbilleder af raske hjerner og hjerner der har en form for svulst.
+The Dataset is from Kaggle.com and contains MRI images of healthy brains and brains with tumor somewhere in it.
 
 ## Instructions:
 
 To make a prediction, you must follow these instructions for the program to work properly.
 - Click the "Vælg fil"
 - Choose an image you want to make a prediction on.  
-- **NOTE** The chosen image has to be a scanning in black and white, any other image confuse the model.
+- **NOTE** The chosen image has to be an MRI scanning, any other image confuse the model.
 - When ready click the upload button and wait a few seconds.
 - If all above steps were done correctly, you should now see the image you chose and percentage of how sure the program is.
 
@@ -36,8 +36,8 @@ To make a prediction, you must follow these instructions for the program to work
 - [x] Make Blazor.
 - [x] Make Frontend.
 - [x] Make Backend.
-- [x] Improve iteration #1 95% - 96% Accuracy
-- [x] Improve iteration #2 
+- [x] Improve iteration #1 95,80% - 96,22% Accuracy
+- [x] Iteration #2 96,65% - 96,9% Accuracy (AKA: BrainClassificationModel_V1)
 
 <br>
 
@@ -58,13 +58,26 @@ To make a prediction, you must follow these instructions for the program to work
 ## Folder Structure:
 
 ```
+## Main Project
+
 ML_Project
 | README.md
 ├── ML_Project
+└── TumorClassificationModel.mbconfig
 ├── MLBlazorServer
 └── TumorClassificationModel_Console
     └── TumorClassificationModel.mbconfig
+    
+## Folder structure different iterations
 
+ML_Project
+|
+├── BrainClassificationModel_v1_ConsoleApp
+|   └── BrainClassificationModel_v1.mbconfig
+├── ML_Project
+|   ├── BrainClassificationModel_v1.mbconfig
+|   └── TumorClassificationModel.mbconfig
+└── MLBlazorServer
 ```
 <br>
 
